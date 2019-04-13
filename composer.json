@@ -1,6 +1,6 @@
 {
-    "name": "imagine/imagine",
-    "description": "Image processing for PHP 5.3",
+    "name": "nikel303/imagine",
+    "description": "Image processing for PHP 7.1",
     "keywords": [
         "image manipulation",
         "image processing",
