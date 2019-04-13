@@ -1,5 +1,5 @@
 {
-    "name": "nikel303/imagine",
+    "name": "nikel303/Imagine",
     "description": "Image processing for PHP 7.1",
     "keywords": [
         "image manipulation",
@@ -36,11 +36,6 @@
     "autoload-dev": {
         "psr-4": {
             "Imagine\\Test\\": "tests/tests/"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-develop": "0.7-dev"
         }
     },
     "archive": {
