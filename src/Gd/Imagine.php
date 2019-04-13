@@ -133,9 +133,9 @@ final class Imagine extends AbstractImagine
      *
      * @see \Imagine\Image\ImagineInterface::font()
      */
-    public function font($file, $size, ColorInterface $color)
+    public function font($file, $size, ColorInterface $color, $linespacing = null)
     {
-        return $this->getClassFactory()->createFont(ClassFactoryInterface::HANDLE_GD, $file, $size, $color);
+        return $this->getClassFactory()->createFont(ClassFactoryInterface::HANDLE_GD, $file, $size, $color, $linespacing);
     }
 
     /**

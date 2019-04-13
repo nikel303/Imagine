@@ -57,7 +57,7 @@ interface ClassFactoryInterface
      *
      * @return \Imagine\Image\FontInterface
      */
-    public function createFont($handle, $file, $size, ColorInterface $color);
+    public function createFont($handle, $file, $size, ColorInterface $color, $linespacing = null);
 
     /**
      * Create a new instance of a file loader.
