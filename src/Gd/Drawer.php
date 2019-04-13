@@ -369,7 +369,7 @@ final class Drawer implements DrawerInterface
                 $fontfile = $fontfileRealpath;
             }
         }
-        if (false === imagefttext($this->resource, $fontsize, $angle, $x, $y, $this->getColor($font->getColor()), $fontfile, $string)) {
+        if (false === imagefttext($this->resource, $fontsize, $angle, $x, $y, $this->getColor($font->getColor()), $fontfile, $string, $font->getLineSpacing() === null ? [] : ['linespacing' => $font->getLineSpacing()])) {
             imagealphablending($this->resource, false);
             throw new RuntimeException('Font mask operation failed');
         }

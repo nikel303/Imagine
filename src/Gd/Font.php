@@ -39,7 +39,7 @@ final class Font extends AbstractFont
         }
 
         $angle = -1 * $angle;
-        $info = imageftbbox($this->size, $angle, $fontfile, $string);
+        $info = imageftbbox($this->size, $angle, $fontfile, $string, $this->getLineSpacing() === null ? [] : ['linespacing' => $this->getLineSpacing()]);
         $xs = array($info[0], $info[2], $info[4], $info[6]);
         $ys = array($info[1], $info[3], $info[5], $info[7]);
         $width = abs(max($xs) - min($xs));

@@ -38,24 +38,31 @@ abstract class AbstractFont implements FontInterface, ClassFactoryAwareInterface
     protected $size;
 
     /**
+     * @var int
+     */
+    protected $lineSpacing;
+
+    /**
      * @var \Imagine\Image\Palette\Color\ColorInterface
      */
     protected $color;
 
-    /**
-     * Constructs a font with specified $file, $size and $color.
-     *
-     * The font size is to be specified in points (e.g. 10pt means 10)
-     *
-     * @param string $file
-     * @param int $size
-     * @param \Imagine\Image\Palette\Color\ColorInterface $color
-     */
-    public function __construct($file, $size, ColorInterface $color)
+	/**
+	 * Constructs a font with specified $file, $size and $color.
+	 *
+	 * The font size is to be specified in points (e.g. 10pt means 10)
+	 *
+	 * @param string $file
+	 * @param int $size
+	 * @param \Imagine\Image\Palette\Color\ColorInterface $color
+	 * @param null $lineSpacing
+	 */
+    public function __construct($file, $size, ColorInterface $color, $lineSpacing = null)
     {
         $this->file = $file;
         $this->size = $size;
         $this->color = $color;
+        $this->lineSpacing = $lineSpacing;
     }
 
     /**
@@ -76,6 +83,14 @@ abstract class AbstractFont implements FontInterface, ClassFactoryAwareInterface
     final public function getSize()
     {
         return $this->size;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    final public function getLineSpacing()
+    {
+        return $this->lineSpacing;
     }
 
     /**
@@ -101,7 +116,7 @@ abstract class AbstractFont implements FontInterface, ClassFactoryAwareInterface
         }
         $maxWidth = (int) round($maxWidth);
         if ($maxWidth < 1) {
-            throw new InvalidArgumentException(sprintf('The $maxWidth parameter of wrapText must be greater than 0.'));
+            throw new InvalidArgumentException(sprintf('The %s parameter of wrapText must be greater than 0.', $maxWidth));
         }
         $words = explode(' ', $string);
         $lines = array();
