@@ -134,7 +134,7 @@ class ClassFactory implements ClassFactoryInterface
      *
      * @see \Imagine\Factory\ClassFactoryInterface::createFont()
      */
-    public function createFont($handle, $file, $size, ColorInterface $color)
+    public function createFont($handle, $file, $size, ColorInterface $color, $linespacing = null)
     {
         switch ($handle) {
             case self::HANDLE_GD:
@@ -143,7 +143,7 @@ class ClassFactory implements ClassFactoryInterface
                     throw new RuntimeException('GD is not compiled with FreeType support');
                 }
 
-                return $this->finalize(new \Imagine\Gd\Font($file, $size, $color));
+                return $this->finalize(new \Imagine\Gd\Font($file, $size, $color, $linespacing));
             case self::HANDLE_GMAGICK:
                 $gmagick = new \Gmagick();
                 $gmagick->newimage(1, 1, 'transparent');
